@@ -1,3 +1,7 @@
+
+/*There is a problem getting the images to fill the div carousel-container. The problem might be  that each image should have its own div. 
+Also, a solution could be to specifically crop each image to have a width ratio slightly twice the height, but I think the div solution might be better.*/
+
 *,
 ::after,
 ::before {
