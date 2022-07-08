@@ -1,0 +1,52 @@
+const carouselSlide = document.querySelector(".carousel-slide");
+const carouselImages = document.querySelectorAll(".carousel-slide img");
+
+// Buttons
+const nextBtn = document.querySelector("#nextBtn");
+const prevBtn = document.querySelector("#prevBtn");
+
+// Counter
+let counter = 1; //we start on image one//
+
+// makes carousel slide the width of one image only //
+const size = carouselImages[0].clientWidth; 
+console.log(size);
+
+//Note: carouselImage[0] is used for the width of the images we need to skip to get to the next image. Count starts from zero//
+
+//used so we start on the second image//
+carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+//Button Listeners
+nextBtn.addEventListener('click',()=>{
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter++;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+prevBtn.addEventListener('click',()=>{
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter--;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+carouselSlide.addEventListener('transitionend', () => {
+    // When the first image (lastclone) is reached using prevBtn, the transition will = none and it will move us to image number -2//
+
+    if(carouselImages[counter].id === 'lastClone'){
+    //using transition "none" prevents the carousel from slowly cycling through the images back to image -2, so instead we just teleport to make it seamless
+    carouselSlide.style.transition = "none";
+    counter = carouselImages.length -2;
+    
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+
+    if(carouselImages[counter].id === 'firstClone'){
+    //using transition "none" prevents the carousel from slowly cycling through the images back to image -2. Instead we just teleport to make it seamless
+    carouselSlide.style.transition = "none";
+    counter = carouselImages.length - counter;
+    
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+
+});
