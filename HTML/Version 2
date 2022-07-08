@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Picture Slider</title>
+
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+
+            <!-- This image must be the same as second to last image to allow transition to be smooth -->
+            <img id="lastClone" src="./slider images/image 4.jpg" alt="">
+
+            <!-- This image must be the same as the last image for smooth transition -->
+            <img src="./slider images/image 5.jpg" alt="">
+
+            <img src="./slider images/image 1.jpg" alt="">
+
+            <img src="./slider images/image 3.jpg" alt="">
+
+            <img src="./slider images/image 3.jpg" alt="">
+            
+            <img src="./slider images/image 4.jpg" alt="">
+
+            <img src="./slider images/image 5.jpg" id="firstClone" alt="">
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button type="button" id="prevBtn">
+            prev
+        </button>
+        
+        <button type="button" id="nextBtn">
+            next
+        </button>
+    </div>
+
+<script>
+
+
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
