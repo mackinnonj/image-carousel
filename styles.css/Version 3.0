@@ -1,0 +1,82 @@
+*,
+*::after
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.carousel {
+    width: 50vw;
+    height: 40vh;
+    position: relative;
+}
+
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    position: absolute;
+    /* inset means top, right, bottom, & left */
+    inset: 0;
+    opacity: 0;
+    /* We will have the active slide (data-active) ease in before the old slide fades out using a delay */
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+}
+
+.slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    /* for transition delay you must set to 0ms */
+    transition-delay: 0ms;
+}
+
+/* the ">" selects the img inside of .slide */
+.slide > img {
+    display: block;
+    width: 100%;   
+    height: 100%;
+    /*prevents the image from squishing by keeping image size ratio */
+    object-fit: cover;
+    /* makes sure the center of the image is focused */
+    object-position: center;
+}
+
+.carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    /* togeather the "top" and "transform" make the arrows centered */
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem ;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+    color: white;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button:focus {
+    outline: 1px solid black;
+}
+
+.carousel-button.prev {
+    left: 1rem
+}
+
+.carousel-button.next {
+    right: 1rem;
+}
