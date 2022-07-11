@@ -1,0 +1,26 @@
+const buttons = document.querySelectorAll("[data-carousel-button]");
+
+//  We are using data attributes so no matter how many carousels we have on our page they will all work.
+buttons.forEach(button => {
+    button.addEventListener('click', () =>{
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1
+        const slides = button
+        .closest("[data-carousel]")
+        .querySelector("[data-slides]")
+
+        const activeSlide = slides.querySelector("[data-active]")
+
+        // typing "..." converts it to an array
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+        if (newIndex < 0) newIndex = slides.children.length - 1
+
+        // this is a loop so that if we passed the very last slide it will loop us back to the first slide at index 0
+        if (newIndex >= slides.children.length) newIndex = 0
+
+        // This sets our data attribute to our new currently active slide
+        slides.children[newIndex].dataset.active = true
+
+        // this removes the data attribute from the active slide
+        delete activeSlide.dataset.active
+    })
+})
