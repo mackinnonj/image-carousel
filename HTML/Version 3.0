@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Picture Slider</title>
+
+</head>
+<body>
+<section aria-label="Newest Photos">
+    <div class="carousel" data-carousel>
+        <button class="carousel-button prev" data-carousel-button>&#129084;</button>
+        <button class="carousel-button next" data-carousel-button>&#129086;</button>
+        <ul data-slides>
+            <li class="slide" data-active>
+                <img src="./slider images/image 1.jpg" alt="Image #1">
+            </li>
+            <li class="slide">
+                <img src="./slider images/image 2.jpg" alt="Image #2">
+            </li>
+            <li class="slide">
+                <img src="./slider images/image 3.jpg" alt="Image #3">
+            </li>
+        </ul>
+    </div>
+</section>
+<script>
+
+
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>
