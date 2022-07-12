@@ -3,7 +3,9 @@ const buttons = document.querySelectorAll("[data-carousel-button]");
 //  We are using data attributes so no matter how many carousels we have on our page they will all work.
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
+        // swaps to the next image  if it is equal to "next" we will return the value of 1 otherwise return value of -1
         const offset = button.dataset.carouselButton === "next" ? 1 : -1
+        
         const slides = button
         .closest("[data-carousel]")
         .querySelector("[data-slides]")
