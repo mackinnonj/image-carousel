@@ -13,6 +13,7 @@ buttons.forEach(button => {
         const activeSlide = slides.querySelector("[data-active]")
 
         // typing "..." converts it to an array
+        // "slides.children" are the slides themselves
         let newIndex = [...slides.children].indexOf(activeSlide) + offset
         if (newIndex < 0) newIndex = slides.children.length - 1
 
